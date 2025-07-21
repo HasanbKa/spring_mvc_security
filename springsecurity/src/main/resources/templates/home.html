@@ -22,6 +22,20 @@
     </p>
 
     <hr>
+    <!-- Add a link to pint to /leaders. This is for the managers. -->
+    <p>
+        <a th:href="@{/leaders}">Leadership Meeting</a>
+        (Only for Manager people)
+    </p>
+
+    <!-- Add a link to pint to /systems. This is for the admins. -->
+    <p>
+        <a th:href="@{/systems}">IT Systems Meeting</a>
+        (Only for Admin people)
+    </p>
+
+    <hr>
+
 
     <form action="#" th:action="@{/logout}" method="POST">
         <input type="submit" value="Logout"/>
