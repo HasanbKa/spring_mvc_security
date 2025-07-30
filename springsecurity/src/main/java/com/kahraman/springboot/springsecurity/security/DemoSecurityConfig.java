@@ -6,24 +6,21 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class DemoSecurityConfig {
 
+    // add support for JDBC...
     @Bean
-    public InMemoryUserDetailsManager userDetailsManager() {
+    public UserDetailsManager userDetailsManager(DataSource dataSource) {
 
-        UserDetails hasan = User.builder().
-                username("hasan").password("{noop}hasan123").roles("EMPLOYEE").build();
+        return new JdbcUserDetailsManager(dataSource);
 
-        UserDetails ali = User.builder().
-                username("ali").password("{noop}ali123").roles("EMPLOYEE", "MANAGER").build();
-
-        UserDetails julian = User.builder().
-                username("julian").password("{noop}julian123").roles("EMPLOYEE", "MANAGER", "ADMIN").build();
-
-        return new InMemoryUserDetailsManager(hasan, ali, julian);
     }
 
     @Bean
@@ -50,5 +47,22 @@ public class DemoSecurityConfig {
 
         return http.build();
     }
+
+    /*
+    @Bean
+    public InMemoryUserDetailsManager userDetailsManager() {
+
+        UserDetails hasan = User.builder().
+                username("hasan").password("{noop}hasan123").roles("EMPLOYEE").build();
+
+        UserDetails ali = User.builder().
+                username("ali").password("{noop}ali123").roles("EMPLOYEE", "MANAGER").build();
+
+        UserDetails julian = User.builder().
+                username("julian").password("{noop}julian123").roles("EMPLOYEE", "MANAGER", "ADMIN").build();
+
+        return new InMemoryUserDetailsManager(hasan, ali, julian);
+    }
+    */
 
 }
