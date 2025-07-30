@@ -19,14 +19,12 @@ CREATE TABLE `users` (
 --
 -- NOTE: The passwords are encrypted using BCrypt
 --
--- Default passwords here are: fun123
---
 
 INSERT INTO `users` 
 VALUES 
-('hasan','{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q',1),
-('ali','{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q',1),
-('julian','{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q',1);
+('hasan','{bcrypt}$2a$10$AdlikcPfWzCC8YAB1I9B2e8IsNSDZKaUf9PN6QvZC2EN4AG33F5B.',1),
+('ali','{bcrypt}$2a$10$3QdqBUFSX9XzGEHGRM40l.8OoPMKDFMZgEebGUlpyr93CHIJt50Aa',1),
+('julian','{bcrypt}$2a$10$LR0DpbQgfqdBo0Fo8.0d9ezX1aQg7P4lCYIiL5t28OBw4pd5XsIrC',1);
 
 
 --
